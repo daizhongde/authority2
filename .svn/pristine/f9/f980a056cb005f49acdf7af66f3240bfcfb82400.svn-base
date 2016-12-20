@@ -1,0 +1,79 @@
+package com.asiainfo.authority.hibernate.pojo;
+
+/**
+ * TAuthorityRmrelationId entity. @author MyEclipse Persistence Tools
+ */
+
+public class TAuthorityRmrelationId implements java.io.Serializable {
+
+	// Fields
+
+	private TAuthorityRole TAuthorityRole;
+	private TAuthorityModule TAuthorityModule;
+
+	// Constructors
+
+	/** default constructor */
+	public TAuthorityRmrelationId() {
+	}
+
+	/** full constructor */
+	public TAuthorityRmrelationId(TAuthorityRole TAuthorityRole,
+			TAuthorityModule TAuthorityModule) {
+		this.TAuthorityRole = TAuthorityRole;
+		this.TAuthorityModule = TAuthorityModule;
+	}
+
+	// Property accessors
+
+	public TAuthorityRole getTAuthorityRole() {
+		return this.TAuthorityRole;
+	}
+
+	public void setTAuthorityRole(TAuthorityRole TAuthorityRole) {
+		this.TAuthorityRole = TAuthorityRole;
+	}
+
+	public TAuthorityModule getTAuthorityModule() {
+		return this.TAuthorityModule;
+	}
+
+	public void setTAuthorityModule(TAuthorityModule TAuthorityModule) {
+		this.TAuthorityModule = TAuthorityModule;
+	}
+
+	public boolean equals(Object other) {
+		if ((this == other))
+			return true;
+		if ((other == null))
+			return false;
+		if (!(other instanceof TAuthorityRmrelationId))
+			return false;
+		TAuthorityRmrelationId castOther = (TAuthorityRmrelationId) other;
+
+		return ((this.getTAuthorityRole() == castOther.getTAuthorityRole()) || (this
+				.getTAuthorityRole() != null
+				&& castOther.getTAuthorityRole() != null && this
+				.getTAuthorityRole().equals(castOther.getTAuthorityRole())))
+				&& ((this.getTAuthorityModule() == castOther
+						.getTAuthorityModule()) || (this.getTAuthorityModule() != null
+						&& castOther.getTAuthorityModule() != null && this
+						.getTAuthorityModule().equals(
+								castOther.getTAuthorityModule())));
+	}
+
+	public int hashCode() {
+		int result = 17;
+
+		result = 37
+				* result
+				+ (getTAuthorityRole() == null ? 0 : this.getTAuthorityRole()
+						.hashCode());
+		result = 37
+				* result
+				+ (getTAuthorityModule() == null ? 0 : this
+						.getTAuthorityModule().hashCode());
+		return result;
+	}
+
+}
