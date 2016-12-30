@@ -380,7 +380,9 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //		}
 //		System.out.println("id:"+userinfo.getNUid()+" name:"+userinfo.getCUname());
 		sResponse = dataService.getData_YUI2_Menu();
-		return "sResponse";
+//		return "success2";//struts-2.5.5 not available success2   sResponse
+		super.setJson( sResponse  );
+		return SUCCESS;
 	}
 	/**
 	 * YUI2 MenuBar Json数据<p>used by YUI2
@@ -399,7 +401,9 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //		}
 //		System.out.println("id:"+userinfo.getNUid()+" name:"+userinfo.getCUname());
 		sResponse = dataService.getData_YUI2_Menubar();
-		return "sResponse";
+//		return "success2";//struts-2.5.5 not available  success2   sResponse
+		super.setJson( sResponse  );
+		return SUCCESS;
 	}
 	/**
 	 * 菜单Json数据<p>used by dojo
