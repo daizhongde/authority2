@@ -9,12 +9,11 @@ import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
-import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 
 import person.daizhongde.virtue.constant.INIT;
-import person.daizhongde.virtue.testutil.Printer;
 
 import com.asiainfo.authority.constant.SessionConstants;
 import com.asiainfo.authority.hibernate.pojo.TAuthorityUser;
@@ -29,7 +28,7 @@ public class BaseAction extends ActionSupport implements Action{
 	private static final long serialVersionUID = -7546060204136034008L;
 	
 	/** 日志 */
-	protected org.apache.log4j.Logger log = Logger.getLogger(this.getClass());
+	protected Logger log = LogManager.getLogger(BaseAction.class.getName() );
 	{
 		System.setProperty("VirtueLog4j.root", INIT.localFileRootDirectory );
 //		getServlet().getServletContext().getRealPath(""); 
