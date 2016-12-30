@@ -22,13 +22,13 @@ public class ReDispatcherFilter implements Filter {
 
 		HttpServletRequest request = (HttpServletRequest) req;
 		String target = request.getRequestURI();
-		target = target.lastIndexOf("?") > 0 ? target.substring(
+		String servletName = target.lastIndexOf("?") > 0 ? target.substring(
 				target.lastIndexOf("/") + 1,
 				target.lastIndexOf("?") - target.lastIndexOf("/")) : target
 				.substring(target.lastIndexOf("/") + 1);
 
 //		System.out.println(target);
-		if (this.includes.contains(target)) {
+		if (this.includes.contains(servletName)) {
 			RequestDispatcher rdsp = request.getRequestDispatcher(target);
 
 			System.out.println("go..............." + rdsp);
