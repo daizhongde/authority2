@@ -14,7 +14,7 @@
 
 	<!-- 通用下载类 -->
 	<bean id="downloadEXPAction" class="com.asiainfo.authority.struts2.action.common.DownloadEXPAction" 
-	 autowire="no" autowire-candidate="false" scope="prototype">
+	 scope="prototype">
 		<property name="loginCheck">
 			<value>${download.login}</value>
 		</property>
