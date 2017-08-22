@@ -4,6 +4,11 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+
 import person.daizhongde.virtue.testutil.Printer;
 
 import com.asiainfo.authority.constant.SessionConstants;
@@ -79,6 +84,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 	public String query_JEasyUI_Treegrid(){
 //		log.debug("action............query_JEasyUI_Treegrid........");
 		sResponse = dataService.getData_JEasyUI_Treegrid();
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -102,7 +108,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 		}else{
 			sResponse = dataService.getData_JEasyUI_Tree( id, false );
 		}
-		
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -127,7 +133,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 			sResponse = dataService.getData_JEasyUI_Tree_Async( 
 					id, false );
 		}
-		
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	
@@ -161,6 +167,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 		{//roleId == 0 && id ==0没有传id,is not lasy load tree
 			sResponse = "[]";
 		}
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -195,6 +202,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 		{//roleId == 0 && id ==0没有传id,is not lasy load tree
 			sResponse = "[]";
 		}
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -220,6 +228,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 					id, false );
 		}
 //		System.out.println("this.sResponse:"+this.sResponse);
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	
@@ -246,6 +255,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 					id, false );
 		}
 //		System.out.println("this.sResponse:"+this.sResponse);
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -272,7 +282,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 			this.sResponse = dataService.getData_JEasyUI_Dndtree( 
 					id, false );
 		}
-		
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -298,7 +308,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 			this.sResponse = dataService.getData_JEasyUI_Dndtree(
 					id, false );
 		}
-		
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -318,6 +328,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //		}
 //		System.out.println("id:"+userinfo.getNUid()+" name:"+userinfo.getCUname());
 		sResponse = dataService.getData_GubuSoft_Tree();
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -337,6 +348,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //		}
 //		System.out.println("id:"+userinfo.getNUid()+" name:"+userinfo.getCUname());
 		sResponse = "var jsonData ="+dataService.getData_GubuSoft_Tree()+";";
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -350,17 +362,18 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 		ActionContext ctx = ActionContext.getContext();
 		//通过ActionContext访问用户的HttpSession
 		Map session = ctx.getSession();
-		System.out.println("##########test########");
+//		System.out.println("##########test########");
 		TAuthorityUser userinfo = (TAuthorityUser)session.get( SessionConstants.LOGIN_USER );
 		if(userinfo==null){
 			return "login";
 		}
 		if(userinfo.getCUlogname().equalsIgnoreCase("dev")){
 			sResponse = "var jsonData ="+dataService.getData_GubuSoft_Tree()+";";
-			return "sResponse";
+		}else{
+			sResponse = "var jsonData ="+dataService.getData_GubuSoft_Tree( userinfo.getNUid() )+";";
 		}
-//		System.out.println("id:"+userinfo.getNUid()+" name:"+userinfo.getCUname());
-		sResponse = "var jsonData ="+dataService.getData_GubuSoft_Tree( userinfo.getNUid() )+";";
+		
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -380,7 +393,9 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //		}
 //		System.out.println("id:"+userinfo.getNUid()+" name:"+userinfo.getCUname());
 		sResponse = dataService.getData_YUI2_Menu();
-		return "sResponse";
+//		return "success2";//struts-2.5.5 not available success2   sResponse
+		super.setJson( sResponse  );
+		return SUCCESS;
 	}
 	/**
 	 * YUI2 MenuBar Json数据<p>used by YUI2
@@ -399,7 +414,9 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //		}
 //		System.out.println("id:"+userinfo.getNUid()+" name:"+userinfo.getCUname());
 		sResponse = dataService.getData_YUI2_Menubar();
-		return "sResponse";
+//		return "success2";//struts-2.5.5 not available  success2   sResponse
+		super.setJson( sResponse  );
+		return SUCCESS;
 	}
 	/**
 	 * 菜单Json数据<p>used by dojo
@@ -418,6 +435,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //		}
 //		System.out.println("id:"+userinfo.getNUid()+" name:"+userinfo.getCUname());
 		sResponse = "{\"identifier\": \"id\",\"label\": \"text\",\"items\": " + dataService.getData_GubuSoft_Tree() + "}";
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -437,6 +455,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //		}
 //		System.out.println("id:"+userinfo.getNUid()+" name:"+userinfo.getCUname());
 		sResponse = "{\"identifier\": \"id\",\"label\": \"text\",\"items\": " + dataService.getData_Dojo_Tree_NoRoot() + "}";
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -458,7 +477,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //		System.out.println("id:"+userinfo.getNUid()+" name:"+userinfo.getCUname());
 		sResponse = "{\"identifier\": \"id\",\"label\": \"text\",\"items\": [{'id':1, 'text':'湖南社保金融卡省内前置系统', 'iconcls':'icon-web', 'children':true}]}";
 //		sResponse = "{\"identifier\": \"id\",\"label\": \"text\",\"items\": "+ dataService.getData_LazyRoot( 1 ) +"}";
-		
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -477,8 +496,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //			return "login";
 //		}
 		sResponse = "{\"identifier\": \"id\",\"label\": \"text\",\"items\": "+dataService.getData_Dojo_Tree_LazyNode( id )+"}";
-		
-//		System.out.println("id:"+userinfo.getNUid()+" name:"+userinfo.getCUname());
+		this.setsResponse(sResponse);
 		
 		return "sResponse";
 	}
@@ -498,7 +516,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //			return "login";
 //		}
 		sResponse = dataService.getData_Dojo_Tree_Async( id );
-//		System.out.println("id:"+userinfo.getNUid()+" name:"+userinfo.getCUname());
+		this.setsResponse(sResponse);
 		
 		return "sResponse";
 	}
@@ -516,6 +534,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 		}else{//node and node's children, jsonObject
 			sResponse = dataService.getData_Dojo_Tree_LazyNode( id );
 		}
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -537,6 +556,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //		}
 //		System.out.println("id:"+userinfo.getNUid()+" name:"+userinfo.getCUname());
 		sResponse = dataService.getData_Ext3_Tree();
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -558,6 +578,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //		}
 //		System.out.println("id:"+userinfo.getNUid()+" name:"+userinfo.getCUname());
 		sResponse = dataService.getData_Dojo_Tree_Async( Integer.valueOf( node ) );
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -577,6 +598,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //		}
 //		System.out.println("id:"+userinfo.getNUid()+" name:"+userinfo.getCUname());
 		sResponse = dataService.getData_Ext4_Tree();
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	
@@ -616,6 +638,9 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 
 	public void setsResponse(String sResponse) {
 		this.sResponse = sResponse;
+		HttpServletRequest request=ServletActionContext.getRequest();  
+        ServletContext cxt=ServletActionContext.getServletContext();  
+        request.setAttribute("sResponse", sResponse );
 	}
 
 	public String getSResponse() {
