@@ -1939,11 +1939,6 @@ public class TAuthorityModuleServiceImpl implements TAuthorityModuleService {
 		return id;
 	}
 
-	public int add(Map data) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 	public int addWithId( String jdata ){
 		JSONObject jsonObject = JSONObject.fromObject(jdata);
 		AbstractConstant absConstant = new AuthorityModule();
@@ -2008,6 +2003,11 @@ public class TAuthorityModuleServiceImpl implements TAuthorityModuleService {
 		
 	}
 	
+	public int add(Map data) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	public int modify( String jdata ){
 		JSONObject jsonObject = JSONObject.fromObject(jdata);
 		AbstractConstant absConstant = new AuthorityModule();

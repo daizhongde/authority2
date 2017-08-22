@@ -27,8 +27,7 @@ public class ReDispatcherFilter implements Filter {
 				target.lastIndexOf("?") - target.lastIndexOf("/")) : target
 				.substring(target.lastIndexOf("/") + 1);
 
-		System.out.println("target:"+target);
-		System.out.println("servletName:"+servletName);
+//		System.out.println(target);
 		if (this.includes.contains(servletName)) {
 			RequestDispatcher rdsp = request.getRequestDispatcher(target);
 
