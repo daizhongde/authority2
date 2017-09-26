@@ -22,7 +22,7 @@ import org.apache.struts2.ServletActionContext;
 
 import person.daizhongde.virtue.constant.AbstractConstant;
 import person.daizhongde.virtue.spring.BaseExportService;
-import person.daizhongde.virtue.util.CharacterConvert;
+import person.daizhongde.virtue.util.character.CharacterConvert;
 
 import com.asiainfo.authority.constant.AuthorityModule;
 import com.asiainfo.authority.spring.service.CommonService;

@@ -67,7 +67,7 @@ select t1.N_IID          "n_iid",
        t1.C_IMTIME       "c_imtime",
        t1.C_IMIP         "c_imip",
        t1.C_IMODIFIER    "c_imodifier"
-  from TOOL.t_Authority_Inst t1
+  from tool.t_authority_inst t1
 
 /* tableData HQL   */ 
 --@JavaScript AuthorityInst.Query.query.HQL
@@ -99,7 +99,7 @@ select t1.N_IID          "n_iid",
        t1.C_IMTIME       "c_imtime",
        t1.C_IMIP         "c_imip",
        t1.C_IMODIFIER    "c_imodifier"
-  from TOOL.t_Authority_Inst t1
+  from tool.t_authority_inst t1
 
 
 -- AuthorityInst.Read.read.HQL, hql haven't decode function, also '||' can't explain in hql
@@ -111,7 +111,7 @@ select t1.N_IID          "n_iid",
 -- SQL for select AuthorityInst.Combobox.combobox.data
 --@JavaScript AuthorityInst.Combobox.combobox.SQL
 select t1.n_mid "id", t1.c_mname "text"
-  from TOOL.T_AUTHORITY_module t1
+  from tool.t_authority_module t1
  where t1.c_mleaf = 'false'
 
 -- HQL select AuthorityInst.Combobox.combobox.data
@@ -143,14 +143,14 @@ select t1.N_MID,
        t1.C_MMTIME,
        t1.C_MMIP,
        t1.C_MMODIFIER
-  from TOOL.T_AUTHORITY_module t1 
+  from tool.t_authority_module t1 
   left outer join 
    (  
        select t4.n_mid,'true' as "C_MCHECKED"
-         from TOOL.T_AUTHORITY_module  t4
+         from tool.t_authority_module  t4
         where t4.n_mid in 
         (
-            select t3.n_mid from TOOL.T_AUTHORITY_rmrelation t3 
+            select t3.n_mid from tool.t_authority_rmrelation t3 
              where t3.n_rid = :roleId
         )
    ) t2
@@ -182,7 +182,7 @@ select t1.N_IID          "n_iid",
        t1.C_IMTIME       "c_imtime",
        t1.C_IMIP         "c_imip",
        t1.C_IMODIFIER    "c_imodifier"
-  from TOOL.t_Authority_Inst t1
+  from tool.t_authority_inst t1
        
 --@JavaScript AuthorityInst.Export.export.HQL
 
@@ -190,7 +190,7 @@ select t1.N_IID          "n_iid",
 
 --@JavaScript AuthorityInst.Nest.nest.SQL
 /**select * 
-  from TOOL.T_AUTHORITY_module t2 
+  from tool.t_authority_module t2 
  where t2.name = t1.name**/
  
 --@JavaScript AuthorityInst.Nest.nest.HQL

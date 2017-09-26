@@ -4,6 +4,11 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.asiainfo.authority.constant.SessionConstants;
 import com.asiainfo.authority.hibernate.pojo.TAuthorityUser;
 import com.asiainfo.authority.spring.service.TAuthorityRoleService;
@@ -70,6 +75,7 @@ public class TAuthorityRoleTREEAction extends BaseAction {
 		}else{
 			this.sResponse = "[]";
 		}
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -95,6 +101,7 @@ public class TAuthorityRoleTREEAction extends BaseAction {
 		}else{
 			this.sResponse = "[]";
 		}
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -126,6 +133,7 @@ public class TAuthorityRoleTREEAction extends BaseAction {
 		{//roleId == 0 && id ==0没有传id,is not lasy load tree
 			sResponse = "[]";
 		}
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -157,6 +165,7 @@ public class TAuthorityRoleTREEAction extends BaseAction {
 		{//roleId == 0 && id ==0没有传id,is not lasy load tree
 			sResponse = "[]";
 		}
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	
@@ -196,6 +205,9 @@ public class TAuthorityRoleTREEAction extends BaseAction {
 
 	public void setsResponse(String sResponse) {
 		this.sResponse = sResponse;
+		HttpServletRequest request=ServletActionContext.getRequest();  
+        ServletContext cxt=ServletActionContext.getServletContext();  
+        request.setAttribute("sResponse", sResponse );
 	}
 
 	public String getSResponse() {
@@ -207,6 +219,9 @@ public class TAuthorityRoleTREEAction extends BaseAction {
 	}
 	public void setMap(Map map) {
 		this.map = map;
+		HttpServletRequest request=ServletActionContext.getRequest();  
+        ServletContext cxt=ServletActionContext.getServletContext();  
+        request.setAttribute("map", map );
 	}
 	
 }

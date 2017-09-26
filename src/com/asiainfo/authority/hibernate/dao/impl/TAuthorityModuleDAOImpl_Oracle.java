@@ -81,7 +81,7 @@ public class TAuthorityModuleDAOImpl_Oracle extends SpringHibernateDaoSupport im
 		log.debug("findChildrenRecursive......");
 		////my id is other's parent, search downward
 		String queryString = "select * " +
-							   "from "+ INIT.AUTH_schema +".T_Authority_Module " +
+							   "from "+ INIT.AUTH_schema +".t_authority_module " +
 							  "start with N_Mid= :parentId " +
 							"connect by nocycle prior N_Mid=N_Mparent " +
 							  "order by N_Mlevel,N_Morder";
@@ -94,7 +94,7 @@ public class TAuthorityModuleDAOImpl_Oracle extends SpringHibernateDaoSupport im
 		log.debug("findChildrenRecursive_ExceptDev......");
 		////my id is other's parent, search downward
 		String queryString = "select * " +
-							   "from "+ INIT.AUTH_schema +".T_Authority_Module " +
+							   "from "+ INIT.AUTH_schema +".t_authority_module " +
 							  "start with N_Mid= :parentId " +
 							"connect by nocycle prior N_Mid=N_Mparent and N_Mid not in (98,9801,9802,9803,9804,9805) " +
 							  "order by N_Mlevel,N_Morder";
@@ -107,7 +107,7 @@ public class TAuthorityModuleDAOImpl_Oracle extends SpringHibernateDaoSupport im
 		log.debug("findChildren......");
 		////my id is other's parent, search downward
 		String queryString = "select * " +
-							   "from "+ INIT.AUTH_schema +".T_Authority_Module " +
+							   "from "+ INIT.AUTH_schema +".t_authority_module " +
 							  "start with N_Mid= :parentId " +
 							"connect by nocycle prior N_Mid=N_Mparent and N_MLEVEL <= "+maxLevel+" " +
 							  "order by N_Mlevel,N_Morder";

@@ -20,7 +20,7 @@ SELECT
   t1.remark "remark",
   t1.n_mid "NMid" 
 FROM
-  tool.T_Authority_Button t1 
+  tool.t_authority_button t1 
 
 /* tableData HQL   */ 
 --@JavaScript AuthorityButton.Query.query.HQL
@@ -37,7 +37,7 @@ SELECT
   t1.remark "remark",
   t1.n_mid "NMid" 
 FROM
-  tool.T_Authority_Button t1 
+  tool.t_authority_button t1 
 
 --@JavaScript AuthorityButton.Query.query_WithCheckRow2.SQL 
 SELECT 
@@ -49,7 +49,7 @@ SELECT
   t1.remark "remark",
   t1.n_mid "NMid" 
 FROM
-  tool.T_Authority_Button t1 
+  tool.t_authority_button t1 
   LEFT OUTER JOIN tool.t_authority_rbrelation t2 
     ON t2.n_rid = :n_rid
     AND t2.n_bid = t1.n_bid
@@ -64,7 +64,7 @@ SELECT
   t1.remark "remark",
   t1.n_mid "n_mid" 
 FROM
-  tool.T_Authority_Button t1 
+  tool.t_authority_button t1 
   
 -- AuthorityButton.Read.read.HQL, hql haven't decode function, also '||' can't explain in hql
 --@JavaScript AuthorityButton.Read.read.HQL
@@ -76,7 +76,7 @@ FROM
 --@JavaScript AuthorityButton.Combobox.combobox.SQL
 select t1.N_LID       "id",
        t1.C_LNAME     "text"
-  from TOOL.T_AUTHORITY_level t1
+  from tool.t_authority_level t1
 
 --HQL select AuthorityButton.Combobox.combobox.data
 --@JavaScript AuthorityButton.Combobox.combobox.HQL
@@ -92,7 +92,7 @@ SELECT
   t1.remark "remark",
   t1.n_mid "n_mid" 
 FROM
-  tool.T_Authority_Button t1 
+  tool.t_authority_button t1 
 
 --@JavaScript AuthorityButton.Export.export.HQL
 
@@ -101,7 +101,7 @@ FROM
 --@JavaScript AuthorityButton.Nest.nest.SQL
 /**
 select * 
-  from TOOL.T_AUTHORITY_level t2 
+  from tool.t_authority_level t2 
  where t2.name = t1.name**/
  
 --@JavaScript AuthorityButton.Nest.nest.HQL

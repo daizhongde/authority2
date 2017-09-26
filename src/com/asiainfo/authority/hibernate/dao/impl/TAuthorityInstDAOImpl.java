@@ -51,8 +51,7 @@ public class TAuthorityInstDAOImpl extends SpringHibernateDaoSupport implements 
 		log.debug("findChildren......");
 		////my id is other's parent, search downward
 		String queryString = "select * " +
-//							    "from TOOL.T_Authority_Inst " +
-							   "from "+ INIT.AUTH_schema +".T_Authority_Inst " +
+							   "from "+ INIT.AUTH_schema +".t_authority_inst " +
 							  "where FIND_IN_SET( N_Iid, f_getChildInstList( :parentId ) ) " +
 							  "order by N_Ilevel, C_Iname";// C_Icode C_Iname
 		Map map = new HashMap();
@@ -64,8 +63,7 @@ public class TAuthorityInstDAOImpl extends SpringHibernateDaoSupport implements 
 		log.debug("findChildren......");
 		////my id is other's parent, search downward
 		String queryString = "select * " +
-//							    "from TOOL.T_Authority_Inst " +
-							   "from "+ INIT.AUTH_schema +".T_Authority_Inst " +
+							   "from "+ INIT.AUTH_schema +".t_authority_inst " +
 							  "where FIND_IN_SET( N_Iid, f_getChildInstList( :parentId ) ) and N_ILEVEL <= "+maxLevel+" " +
 							  "order by N_Ilevel, C_Iname";// C_Icode C_Iname
 		Map map = new HashMap();

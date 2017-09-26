@@ -67,8 +67,8 @@ TO_CHAR(t1.C_MMTIME, 'YYYY/MM/DD HH24:MI:SS') "mtime",
        t1.C_MMODIFIER    "modifier",
        t1.C_MONS      "ons",
        t1.C_MONT      "ont"
-  from TOOL.T_AUTHORITY_module t1
-  left outer join TOOL.T_AUTHORITY_module t2
+  from tool.t_authority_module t1
+  left outer join tool.t_authority_module t2
     on t1.N_MPARENT = t2.N_MID
 
 /* tableData HQL   */ 
@@ -109,8 +109,8 @@ select t1.N_Mid as "id",
        t1.C_MMODIFIER,
        t1.C_MONS      "ons",
        t1.C_MONT      "ont"
-  from TOOL.T_AUTHORITY_module t1
-  left outer join TOOL.T_AUTHORITY_module t2
+  from tool.t_authority_module t1
+  left outer join tool.t_authority_module t2
     on t1.N_Mparent = t2.N_Mid
 
 -- AuthorityModule.Read.read.HQL, hql haven't decode function, also '||' can't explain in hql
@@ -122,7 +122,7 @@ select t1.N_Mid as "id",
 -- SQL for select AuthorityModule.Combobox.combobox.data
 --@JavaScript AuthorityModule.Combobox.combobox.SQL
 select t1.n_mid "id", t1.c_mname "text"
-  from TOOL.T_AUTHORITY_module t1
+  from tool.t_authority_module t1
  where t1.c_mleaf = 'false'
 
 -- HQL select AuthorityModule.Combobox.combobox.data
@@ -156,14 +156,14 @@ select t1.N_MID,
        t1.C_MMODIFIER,
        t1.C_MONS,
        t1.C_MONT
-  from TOOL.T_AUTHORITY_module t1 
+  from tool.t_authority_module t1 
   left outer join 
    (
        select t4.n_mid,'true' as "C_MCHECKED"
-         from TOOL.T_AUTHORITY_module  t4
+         from tool.t_authority_module  t4
         where t4.n_mid in 
         (
-            select t3.n_mid from TOOL.T_AUTHORITY_rmrelation t3 
+            select t3.n_mid from tool.t_authority_rmrelation t3 
              where t3.n_rid = :roleId
         )
    ) t2
@@ -196,14 +196,14 @@ select t1.N_MID,
        t1.C_MMODIFIER,
        t1.C_MONS,
        t1.C_MONT
-  from TOOL.T_AUTHORITY_module t1 
+  from tool.t_authority_module t1 
   left outer join 
    (
        select t4.n_mid,'true' as "C_MCHECKED"
-         from TOOL.T_AUTHORITY_module  t4
+         from tool.t_authority_module  t4
         where t4.n_mid in 
         (
-            select t3.n_mid from TOOL.T_AUTHORITY_rmrelation t3 
+            select t3.n_mid from tool.t_authority_rmrelation t3 
              where t3.n_rid = :roleId
         )
    ) t2
@@ -262,8 +262,8 @@ select t1.N_MID,
        t1.C_MMODIFIER,
        t1.C_MONS,
        t1.C_MONT
-  from TOOL.T_AUTHORITY_module t1
-  left outer join TOOL.T_AUTHORITY_module t2
+  from tool.t_authority_module t1
+  left outer join tool.t_authority_module t2
     on t1.N_MPARENT = t2.N_MID
        
 --@JavaScript AuthorityModule.Export.export.HQL
@@ -272,7 +272,7 @@ select t1.N_MID,
 
 --@JavaScript AuthorityModule.Nest.nest.SQL
 /**select * 
-  from TOOL.T_AUTHORITY_module t2 
+  from tool.t_authority_module t2 
  where t2.name = t1.name**/
  
 --@JavaScript AuthorityModule.Nest.nest.HQL

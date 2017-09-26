@@ -16,7 +16,7 @@ select t1.N_UID     "n_uid",
        t1.C_CTIME   "c_ctime",
        t1.C_CIP     "c_cip",
        t1.C_CREATOR "c_creator"
-  from TOOL.TOOL.T_AUTHORITY_urrelation t1
+  from tool.t_authority_urrelation t1
 
 
 /* tableData HQL   */ 
@@ -31,7 +31,7 @@ select t1.N_UID     "n_uid",
        t1.C_CTIME   "c_ctime",
        t1.C_CIP     "c_cip",
        t1.C_CREATOR "c_creator"
-  from TOOL.TOOL.T_AUTHORITY_urrelation t1
+  from tool.t_authority_urrelation t1
 
   
 -- AuthorityUrrelation.Read.read.HQL, hql haven't decode function, also '||' can't explain in hql
@@ -47,7 +47,7 @@ select t1.N_UID     "n_uid",
        t1.C_CTIME   "c_ctime",
        t1.C_CIP     "c_cip",
        t1.C_CREATOR "c_creator"
-  from TOOL.TOOL.T_AUTHORITY_urrelation t1
+  from tool.t_authority_urrelation t1
 
 
 --HQL select AuthorityUrrelation.Combobox.combobox.data
@@ -61,7 +61,7 @@ select t1.N_UID     "n_uid",
        t1.C_CTIME   "c_ctime",
        t1.C_CIP     "c_cip",
        t1.C_CREATOR "c_creator"
-  from TOOL.TOOL.T_AUTHORITY_urrelation t1
+  from tool.t_authority_urrelation t1
 
 
 --@JavaScript AuthorityUrrelation.Export.export.HQL
@@ -71,7 +71,7 @@ select t1.N_UID     "n_uid",
 --@JavaScript AuthorityUrrelation.Nest.nest.SQL
 /**
 select * 
-  from TOOL.T_AUTHORITY_level t2 
+  from tool.t_authority_level t2 
  where t2.name = t1.name**/
  
 --@JavaScript AuthorityUrrelation.Nest.nest.HQL

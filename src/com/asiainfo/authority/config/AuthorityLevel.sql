@@ -15,7 +15,7 @@
 select t1.N_LID       "id",
        t1.C_LNAME     "name",
        t1.C_LNOTE     "note"
-  from TOOL.T_AUTHORITY_level t1
+  from tool.t_authority_level t1
 
 /* tableData HQL   */ 
 --@JavaScript AuthorityLevel.Query.query.HQL
@@ -27,7 +27,7 @@ select t1.N_LID       "id",
 select t1.N_LID       "id",
        t1.C_LNAME     "name",
        t1.C_LNOTE     "note"
-  from TOOL.T_AUTHORITY_level t1
+  from tool.t_authority_level t1
   
 -- AuthorityLevel.Read.read.HQL, hql haven't decode function, also '||' can't explain in hql
 --@JavaScript AuthorityLevel.Read.read.HQL
@@ -39,7 +39,7 @@ select t1.N_LID       "id",
 --@JavaScript AuthorityLevel.Combobox.combobox.SQL
 select t1.N_LID       "id",
        t1.C_LNAME     "text"
-  from TOOL.T_AUTHORITY_level t1
+  from tool.t_authority_level t1
 
 --HQL select AuthorityLevel.Combobox.combobox.data
 --@JavaScript AuthorityLevel.Combobox.combobox.HQL
@@ -50,7 +50,7 @@ select t1.N_LID       "id",
 select t1.N_LID       "id",
        t1.C_LNAME     "name",
        t1.C_LNOTE     "note"
-  from TOOL.T_AUTHORITY_level t1
+  from tool.t_authority_level t1
 
 --@JavaScript AuthorityLevel.Export.export.HQL
 
@@ -59,7 +59,7 @@ select t1.N_LID       "id",
 --@JavaScript AuthorityLevel.Nest.nest.SQL
 /**
 select * 
-  from TOOL.T_AUTHORITY_level t2 
+  from tool.t_authority_level t2 
  where t2.name = t1.name**/
  
 --@JavaScript AuthorityLevel.Nest.nest.HQL

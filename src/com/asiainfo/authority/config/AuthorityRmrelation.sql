@@ -40,7 +40,7 @@ SELECT
   t1.btn21 "btn21",
   t1.btn22 "btn22" 
 FROM
-  tool.T_Authority_Rmrelation t1 
+  tool.t_authority_rmrelation t1 
 
 --@JavaScript AuthorityRbrelation.Query.query.HQL
 
@@ -90,7 +90,7 @@ SELECT
   t1.btn21 "btn21",
   t1.btn22 "btn22"
 FROM
-  tool.T_Authority_Rmrelation t1 
+  tool.t_authority_rmrelation t1 
   
 -- AuthorityRbrelation.Read.read.HQL, hql haven't decode function, also '||' can't explain in hql
 --@JavaScript AuthorityRbrelation.Read.read.HQL
@@ -102,7 +102,7 @@ FROM
 --@JavaScript AuthorityRbrelation.Combobox.combobox.SQL
 select t1.N_RID     "n_rid",
        t1.N_MID     "n_mid"
-  from TOOL.TOOL.T_AUTHORITY_rmrelation t1
+  from tool.t_authority_rmrelation t1
 
 --HQL select AuthorityRbrelation.Combobox.combobox.data
 --@JavaScript AuthorityRbrelation.Combobox.combobox.HQL
@@ -139,7 +139,7 @@ SELECT
   t1.btn21 "btn21",
   t1.btn22 "btn22"
 FROM
-  tool.T_Authority_Rmrelation t1 
+  tool.t_authority_rmrelation t1 
 
 --@JavaScript AuthorityRbrelation.Export.export.HQL
 

@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
@@ -173,6 +175,9 @@ public class BaseAction extends ActionSupport implements Action{
 
 	public void setMap(Map map) {
 		this.map = map;
+		HttpServletRequest request=ServletActionContext.getRequest();  
+        ServletContext cxt=ServletActionContext.getServletContext();  
+        request.setAttribute("map", map );
 	}
 
 	public Map getMap() {

@@ -70,7 +70,7 @@ select t1.N_UID       "id",
        --t1.C_UMTIME    "mtime",
        t1.C_UMIP      "mip",
        t1.C_UMODIFIER "modifier"
-  from TOOL.t_Authority_User t1
+  from tool.t_authority_user t1
 
 --@JavaScript AuthorityUser.Query.query_ExceptDev = {}
 --@JavaScript AuthorityUser.Query.query_ExceptDev.SQL
@@ -98,7 +98,7 @@ select t1.N_UID       "id",
        --t1.C_UMTIME    "mtime",
        t1.C_UMIP      "mip",
        t1.C_UMODIFIER "modifier"
-  from TOOL.t_Authority_User t1
+  from tool.t_authority_user t1
  where t1.C_ULOGNAME!='dev'
   
 --@JavaScript AuthorityUser.Query.query4Chat = {}
@@ -108,7 +108,7 @@ select t1.N_UID       "id",
        t1.C_UNAME     "name",
        t1.C_USEX      "sex",
        t1.C_LOGINS    "logins"
-  from TOOL.t_Authority_User t1
+  from tool.t_authority_user t1
  where n_did=27451
  order by C_LOGINS desc, C_ULOGNAME asc
   
@@ -144,8 +144,8 @@ select t1.N_UID       "id",
        t1.C_UMODIFIER "modifier",
        t2.c_icode "icode",
        t2.c_iname "iname"
-  from TOOL.t_Authority_User t1
-  left outer join TOOL.T_Authority_INST t2
+  from tool.t_authority_user t1
+  left outer join tool.t_authority_inst t2
     on t1.n_iid = t2.n_iid
 /** select t1.N_UID       "id",
        t1.C_ULOGNAME  "logname",
@@ -167,7 +167,7 @@ select t1.N_UID       "id",
        t1.C_UMTIME    "mtime",
        t1.C_UMIP      "mip",
        t1.C_UMODIFIER "modifier"
-  from TOOL.t_Authority_User t1
+  from tool.t_authority_user t1
 */
 
 -- AuthorityUser.Read.read.HQL, hql haven't decode function, also '||' can't explain in hql
@@ -179,7 +179,7 @@ select t1.N_UID       "id",
 -- SQL for select AuthorityUser.Combobox.combobox.data
 --@JavaScript AuthorityUser.Combobox.combobox.SQL
 select t1.n_mid "id", t1.c_mname "text"
-  from TOOL.T_AUTHORITY_module t1
+  from tool.t_authority_module t1
  where t1.c_mleaf = 'false'
 
 -- HQL select AuthorityUser.Combobox.combobox.data
@@ -213,7 +213,7 @@ select t1.N_UID       "id",
        t1.C_UMTIME    "mtime",
        t1.C_UMIP      "mip",
        t1.C_UMODIFIER "modifier"
-  from TOOL.t_Authority_User t1
+  from tool.t_authority_user t1
 
        
 --@JavaScript AuthorityUser.Export.export.HQL

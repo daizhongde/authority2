@@ -20,7 +20,7 @@ SELECT
   t1.C_CIP "c_cip",
   t1.C_CREATOR "c_creator" 
 FROM
-  tool.T_Authority_Func t1 
+  tool.t_authority_func t1 
 
 /* tableData HQL   */ 
 --@JavaScript AuthorityFunc.Query.query.HQL
@@ -37,7 +37,7 @@ SELECT
   t1.C_CIP "c_cip",
   t1.C_CREATOR "c_creator" 
 FROM
-  tool.T_Authority_Func t1 
+  tool.t_authority_func t1 
   
 -- AuthorityFunc.Read.read.HQL, hql haven't decode function, also '||' can't explain in hql
 --@JavaScript AuthorityFunc.Read.read.HQL
@@ -49,7 +49,7 @@ FROM
 --@JavaScript AuthorityFunc.Combobox.combobox.SQL
 select t1.c_fcode       "id",
        t1.c_fname     "text"
-  from TOOL.T_Authority_Func t1
+  from tool.t_authority_func t1
 
 --HQL select AuthorityFunc.Combobox.combobox.data
 --@JavaScript AuthorityFunc.Combobox.combobox.HQL
@@ -65,7 +65,7 @@ SELECT
   t1.C_CIP "c_cip",
   t1.C_CREATOR "c_creator" 
 FROM
-  tool.T_Authority_Func t1 
+  tool.t_authority_func t1 
 
 --@JavaScript AuthorityFunc.Export.export.HQL
 
@@ -74,7 +74,7 @@ FROM
 --@JavaScript AuthorityFunc.Nest.nest.SQL
 /**
 select * 
-  from TOOL.T_AUTHORITY_level t2 
+  from tool.t_authority_level t2 
  where t2.name = t1.name**/
  
 --@JavaScript AuthorityFunc.Nest.nest.HQL

@@ -129,7 +129,7 @@ select t1.N_UID       "id",
        t2.c_icode "icode",
        t2.c_iname "iname"
   from AUTHORITY.t_Authority_User t1
-  left outer join AUTHORITY.T_Authority_INST t2
+  left outer join AUTHORITY.t_authority_inst t2
     on t1.n_iid = t2.n_iid
 /** select t1.N_UID       "id",
        t1.C_ULOGNAME  "logname",

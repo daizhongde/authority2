@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
 
-import person.daizhongde.virtue.testutil.Printer;
+import person.daizhongde.virtue.util.test.Printer;
 
 import com.asiainfo.authority.constant.SessionConstants;
 import com.asiainfo.authority.hibernate.pojo.TAuthorityUser;
@@ -74,6 +74,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 		}
 		map.put( "success", Boolean.TRUE );
 		map.put( "msg", "更新成功!" );
+		this.setMap(map);
 		return "map";
 	}
 		
@@ -395,6 +396,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 		sResponse = dataService.getData_YUI2_Menu();
 //		return "success2";//struts-2.5.5 not available success2   sResponse
 		super.setJson( sResponse  );
+		this.setsResponse(sResponse);
 		return SUCCESS;
 	}
 	/**
@@ -416,6 +418,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 		sResponse = dataService.getData_YUI2_Menubar();
 //		return "success2";//struts-2.5.5 not available  success2   sResponse
 		super.setJson( sResponse  );
+		this.setsResponse(sResponse);
 		return SUCCESS;
 	}
 	/**
@@ -497,7 +500,6 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //		}
 		sResponse = "{\"identifier\": \"id\",\"label\": \"text\",\"items\": "+dataService.getData_Dojo_Tree_LazyNode( id )+"}";
 		this.setsResponse(sResponse);
-		
 		return "sResponse";
 	}
 	/**
@@ -517,7 +519,6 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //		}
 		sResponse = dataService.getData_Dojo_Tree_Async( id );
 		this.setsResponse(sResponse);
-		
 		return "sResponse";
 	}
 	/**
@@ -652,6 +653,9 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 	}
 	public void setMap(Map map) {
 		this.map = map;
+		HttpServletRequest request=ServletActionContext.getRequest();  
+        ServletContext cxt=ServletActionContext.getServletContext();  
+        request.setAttribute("map", map );
 	}
 	
 }

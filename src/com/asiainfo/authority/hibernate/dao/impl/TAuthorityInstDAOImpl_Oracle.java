@@ -51,8 +51,8 @@ public class TAuthorityInstDAOImpl_Oracle extends SpringHibernateDaoSupport impl
 		log.debug("findChildren......");
 		////my id is other's parent, search downward
 		String queryString = "select * " +
-//							    "from TOOL.T_Authority_Inst " +
-							   "from "+ INIT.AUTH_schema +".T_Authority_Inst " +
+//							    "from tool.t_authority_inst " +
+							   "from "+ INIT.AUTH_schema +".t_authority_inst " +
 							  "start with N_Iid= :parentId " +
 							"connect by nocycle prior N_Iid=N_ISUPERIOR " +
 							  "order by N_Ilevel,C_Icode";
@@ -65,8 +65,8 @@ public class TAuthorityInstDAOImpl_Oracle extends SpringHibernateDaoSupport impl
 		log.debug("findChildren......");
 		////my id is other's parent, search downward
 		String queryString = "select * " +
-//							    "from TOOL.T_Authority_Inst " +
-							   "from "+ INIT.AUTH_schema +".T_Authority_Inst " +
+//							    "from tool.t_authority_inst " +
+							   "from "+ INIT.AUTH_schema +".t_authority_inst " +
 							  "start with N_Iid= :parentId " +
 							"connect by nocycle prior N_Iid=N_ISUPERIOR and N_ILEVEL <= "+maxLevel+" " +
 							  "order by N_Ilevel,C_Icode";

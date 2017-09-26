@@ -19,7 +19,7 @@ SELECT
   t1.C_CIP "c_cip",
   t1.C_CREATOR "c_creator" 
 FROM
-  tool.T_Authority_Rbrelation t1 
+  tool.t_authority_rbrelation t1 
 
 /* tableData HQL   */ 
 --@JavaScript AuthorityRbrelation.Query.query.HQL
@@ -36,7 +36,7 @@ SELECT
   t1.remark "remark",
   t1.n_mid "NMid" 
 FROM
-  tool.T_Authority_Button t1 
+  tool.t_authority_button t1 
   LEFT OUTER JOIN tool.t_authority_rbrelation t2 
     ON t2.n_bid = t1.n_bid 
     AND t2.n_rid IN 
@@ -56,7 +56,7 @@ SELECT
   t1.C_CIP "c_cip",
   t1.C_CREATOR "c_creator" 
 FROM
-  tool.T_Authority_Rbrelation t1 
+  tool.t_authority_rbrelation t1 
   
 -- AuthorityRbrelation.Read.read.HQL, hql haven't decode function, also '||' can't explain in hql
 --@JavaScript AuthorityRbrelation.Read.read.HQL
@@ -68,7 +68,7 @@ FROM
 --@JavaScript AuthorityRbrelation.Combobox.combobox.SQL
 select t1.N_LID       "id",
        t1.C_LNAME     "text"
-  from TOOL.T_AUTHORITY_level t1
+  from tool.t_authority_level t1
 
 --HQL select AuthorityRbrelation.Combobox.combobox.data
 --@JavaScript AuthorityRbrelation.Combobox.combobox.HQL
@@ -83,7 +83,7 @@ SELECT
   t1.C_CIP "c_cip",
   t1.C_CREATOR "c_creator" 
 FROM
-  tool.T_Authority_Rbrelation t1 
+  tool.t_authority_rbrelation t1 
 
 --@JavaScript AuthorityRbrelation.Export.export.HQL
 
@@ -92,7 +92,7 @@ FROM
 --@JavaScript AuthorityRbrelation.Nest.nest.SQL
 /**
 select * 
-  from TOOL.T_AUTHORITY_level t2 
+  from tool.t_authority_level t2 
  where t2.name = t1.name**/
  
 --@JavaScript AuthorityRbrelation.Nest.nest.HQL

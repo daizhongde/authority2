@@ -4,6 +4,11 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.asiainfo.authority.constant.SessionConstants;
 import com.asiainfo.authority.hibernate.pojo.TAuthorityUser;
 import com.asiainfo.authority.spring.service.TAuthorityUserService;
@@ -107,6 +112,9 @@ public class TAuthorityUserTREEAction extends BaseAction {
 
 	public void setsResponse(String sResponse) {
 		this.sResponse = sResponse;
+		HttpServletRequest request=ServletActionContext.getRequest();  
+        ServletContext cxt=ServletActionContext.getServletContext();  
+        request.setAttribute("sResponse", sResponse );
 	}
 
 	public String getSResponse() {
@@ -118,6 +126,9 @@ public class TAuthorityUserTREEAction extends BaseAction {
 	}
 	public void setMap(Map map) {
 		this.map = map;
+		HttpServletRequest request=ServletActionContext.getRequest();  
+        ServletContext cxt=ServletActionContext.getServletContext();  
+        request.setAttribute("map", map );
 	}
 	
 }

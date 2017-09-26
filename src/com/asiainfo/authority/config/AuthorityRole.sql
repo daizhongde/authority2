@@ -51,7 +51,7 @@ select t1.N_RID      "n_rid",
        t1.C_RCREATOR "c_rcreator",
        t1.C_RONS     "ons",
        t1.C_RONT     "ont"
-  from TOOL.T_AUTHORITY_role t1
+  from tool.t_authority_role t1
 
 /* tableData HQL   */ 
 --@JavaScript AuthorityRole.Query.query.HQL
@@ -70,7 +70,7 @@ select t1.N_RID      "n_rid",
        t1.C_RCREATOR "c_rcreator",
        t1.C_RONS     "ons",
        t1.C_RONT     "ont"
-  from TOOL.T_AUTHORITY_role t1
+  from tool.t_authority_role t1
 
 -- AuthorityRole.Read.read.HQL, hql haven't decode function, also '||' can't explain in hql
 --@JavaScript AuthorityRole.Read.read.HQL
@@ -82,7 +82,7 @@ select t1.N_RID      "n_rid",
 --@JavaScript AuthorityRole.Combobox.combobox.SQL
 select t1.C_RNO      "c_rno",
        t1.C_RNAME    "c_rname"
-  from TOOL.T_AUTHORITY_role t1
+  from tool.t_authority_role t1
 
 -- HQL select AuthorityRole.Combobox.combobox.data
 --@JavaScript AuthorityRole.Combobox.combobox.HQL
@@ -102,11 +102,11 @@ select t1.N_RID,
        t1.C_RCREATOR,
        t1.C_RONS,
        t1.C_RONT
-  from TOOL.T_AUTHORITY_role t1
+  from tool.t_authority_role t1
   left outer join (select t4.n_rid, 'true' as "C_MCHECKED"
-                     from TOOL.T_AUTHORITY_role t4
+                     from tool.t_authority_role t4
                     where t4.n_rid in (select t3.n_rid
-                                         from TOOL.T_AUTHORITY_urrelation t3
+                                         from tool.t_authority_urrelation t3
                                         where t3.n_uid = :userId
                                        )) t2
     on t1.N_RID = t2.N_RID
@@ -125,11 +125,11 @@ select t1.N_RID,
        t1.C_RCREATOR,
        t1.C_RONS,
        t1.C_RONT
-  from TOOL.T_AUTHORITY_role t1
+  from tool.t_authority_role t1
   left outer join (select t4.n_rid, 'true' as "C_MCHECKED"
-                     from TOOL.T_AUTHORITY_role t4
+                     from tool.t_authority_role t4
                     where t4.n_rid in (select t3.n_rid
-                                         from TOOL.T_AUTHORITY_urrelation t3
+                                         from tool.t_authority_urrelation t3
                                         where t3.n_uid = :userId
                                        )) t2
     on t1.N_RID = t2.N_RID
@@ -147,7 +147,7 @@ select t1.N_RID      "n_rid",
        t1.C_RCREATOR "c_rcreator",
        t1.C_RONS     "ons",
        t1.C_RONT     "ont"
-  from TOOL.T_AUTHORITY_role t1
+  from tool.t_authority_role t1
   
 --@JavaScript AuthorityRole.Export.export.HQL
 
@@ -155,7 +155,7 @@ select t1.N_RID      "n_rid",
 
 --@JavaScript AuthorityRole.Nest.nest.SQL
 /**select * 
-  from TOOL.T_AUTHORITY_module t2 
+  from tool.t_authority_module t2 
  where t2.name = t1.name**/
  
 --@JavaScript AuthorityRole.Nest.nest.HQL

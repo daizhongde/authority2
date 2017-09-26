@@ -128,7 +128,6 @@ public class TAuthorityModuleServiceImpl_EXP implements BaseExportService {
     	 * 如：HashMap<String,String> allColumnSQLMap = JSQLParser.getSelectMap( queryDiff ); 
     	 * */
 		HashMap<String,String> allColumnSQLMap = absConstant.getEXPAllColumnSQLMap();
-//		MapPrinter.print(allColumnSQLMap);
 		//customSelectSQL = customSelectCol+ from XX
 		String customSelectSQL ="";
 		String customSelectCol = "select ";
@@ -275,7 +274,6 @@ public class TAuthorityModuleServiceImpl_EXP implements BaseExportService {
     	Map<String, List> ColumnMap = absConstant.getEXPcolumnMap();
     	
 //    	System.out.println("ColumnMap:");
-//    	Printer.print(ColumnMap);
     	
 //		Set set = ColumnMap.keySet();
 		int size = customColumns.size();

@@ -60,13 +60,13 @@ public class TAuthorityUserDAOImpl extends SpringHibernateDaoSupport implements 
 		return new Long(getHibernateTemplate().find(queryString, "1" ).get(0).toString()).longValue();
 	}
 	public void updateLogState( String state, Integer N_UID ){
-		this.sqlQueryExeU( "update T_Authority_User set C_LOGINS= '"+state+"' where N_UID="+N_UID );
+		this.sqlQueryExeU( "update t_authority_user set C_LOGINS= '"+state+"' where N_UID="+N_UID );
 	};
 	public void updateLogState20( String state, Integer N_UID ){
-		this.sqlQueryExeU( "update T_Authority_User set C_LOGINS= '"+state+"', C_LOGOUTT=now() where N_UID="+N_UID );
+		this.sqlQueryExeU( "update t_authority_user set C_LOGINS= '"+state+"', C_LOGOUTT=now() where N_UID="+N_UID );
 	};
 	public void updateLogState21( String state, Integer N_UID, String ip ){
-		this.sqlQueryExeU( "update T_Authority_User set C_LOGINS= '"+state+"', C_LOGINIP ='"+ip+"',C_LOGINT=now() where N_UID="+N_UID );
+		this.sqlQueryExeU( "update t_authority_user set C_LOGINS= '"+state+"', C_LOGINIP ='"+ip+"',C_LOGINT=now() where N_UID="+N_UID );
 	};
 	public void save(TAuthorityUser transientInstance) {
 		log.debug("saving TAuthorityUser instance");

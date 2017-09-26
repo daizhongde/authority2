@@ -27,8 +27,8 @@ import person.daizhongde.virtue.assemble.sql.SQLAssembleU;
 import person.daizhongde.virtue.constant.AbstractConstant;
 import person.daizhongde.virtue.constant.INIT;
 import person.daizhongde.virtue.constant.Operator;
-import person.daizhongde.virtue.testutil.Printer;
-import person.daizhongde.virtue.util.List2Map;
+import person.daizhongde.virtue.util.collection.List2Map;
+import person.daizhongde.virtue.util.test.Printer;
 
 public class TAuthorityRbrelationServiceImpl implements TAuthorityRbrelationService {
 
@@ -44,7 +44,6 @@ public class TAuthorityRbrelationServiceImpl implements TAuthorityRbrelationServ
 		List list = dataDAO.findUserButton4tb(moduleId, userId);
 		Map map = new HashMap();
 		map = List2Map.toMap(list, "CBcode", "checked");
-//		Printer.print(map);
 		return map;
 	}
 	public String getCBBData_Id(String jdata){

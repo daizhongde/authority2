@@ -4,6 +4,11 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.asiainfo.authority.constant.SessionConstants;
 import com.asiainfo.authority.hibernate.pojo.TAuthorityUser;
 import com.asiainfo.authority.spring.service.TAuthorityInstService;
@@ -67,7 +72,7 @@ public class TAuthorityInstTREEAction extends BaseAction {
 		}else{
 			sResponse = dataService.getData_JEasyUI_Tree( id, false );
 		}
-		
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -92,7 +97,7 @@ public class TAuthorityInstTREEAction extends BaseAction {
 			sResponse = dataService.getData_JEasyUI_Tree_Async( 
 					id, false );
 		}
-		
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	
@@ -118,7 +123,7 @@ public class TAuthorityInstTREEAction extends BaseAction {
 			this.sResponse = dataService.getData_JEasyUI_CBT( 
 					id, false );
 		}
-//		System.out.println("this.sResponse:"+this.sResponse);
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 
@@ -144,7 +149,7 @@ public class TAuthorityInstTREEAction extends BaseAction {
 			this.sResponse = dataService.getData_JEasyUI_CBT_Async( 
 					id, false );
 		}
-//		System.out.println("this.sResponse:"+this.sResponse);
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -171,7 +176,7 @@ public class TAuthorityInstTREEAction extends BaseAction {
 			this.sResponse = dataService.getData_JEasyUI_CBT_Async( 
 					id, false );
 		}
-//		System.out.println("this.sResponse:"+this.sResponse);
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -208,7 +213,7 @@ public class TAuthorityInstTREEAction extends BaseAction {
 			this.sResponse = dataService.getData_JEasyUI_CBT_L3( 
 					id, false );
 		}
-//		System.out.println("this.sResponse:"+this.sResponse);
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -235,7 +240,7 @@ public class TAuthorityInstTREEAction extends BaseAction {
 			this.sResponse = dataService.getData_JEasyUI_FullTree( 
 					id, false );
 		}
-		
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -260,7 +265,7 @@ public class TAuthorityInstTREEAction extends BaseAction {
 			this.sResponse = dataService.getData_JEasyUI_FullTree_Async(
 					id, false );
 		}
-		
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -285,6 +290,7 @@ public class TAuthorityInstTREEAction extends BaseAction {
 			this.sResponse = dataService.getData_JEasyUI_FullTree_Async(
 					id, false );
 		}
+		this.setsResponse(sResponse);
 		return "sResponse";
 	}
 	
@@ -323,6 +329,9 @@ public class TAuthorityInstTREEAction extends BaseAction {
 
 	public void setsResponse(String sResponse) {
 		this.sResponse = sResponse;
+		HttpServletRequest request=ServletActionContext.getRequest();  
+        ServletContext cxt=ServletActionContext.getServletContext();  
+        request.setAttribute("sResponse", sResponse );
 	}
 
 	public String getSResponse() {
@@ -334,6 +343,9 @@ public class TAuthorityInstTREEAction extends BaseAction {
 	}
 	public void setMap(Map map) {
 		this.map = map;
+		HttpServletRequest request=ServletActionContext.getRequest();  
+        ServletContext cxt=ServletActionContext.getServletContext();  
+        request.setAttribute("map", map );
 	}
 	
 }
