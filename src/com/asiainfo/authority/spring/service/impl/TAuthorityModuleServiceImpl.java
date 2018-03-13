@@ -1314,8 +1314,18 @@ public class TAuthorityModuleServiceImpl implements TAuthorityModuleService {
 			}
 		}
 	
-		if( level0ModuleList.size() == 0 ){
-			return "[]";
+		if(level0ModuleList.size() == 0){
+			TAuthorityModule rootModule =new TAuthorityModule();
+			rootModule.setNMparent(new Integer(null));
+			rootModule.setNMid(1);
+			rootModule.setCMname("新一代集邮系统");
+			rootModule.setCMpath("");
+			rootModule.setNMlevel( (short)(0));
+			rootModule.setCMleaf("false");
+			rootModule.setNMorder( (short)(1));
+			rootModule.setCMiconcls("jyst");
+			
+			level0ModuleList.add(rootModule);
 		}
 //		MenuDataUtil mdUtil = new MenuDataUtil();
 		mdUtil.assembleData_GubuSoft_Tree(dataList, (TAuthorityModule)level0ModuleList.get(0), 1,	
@@ -1350,79 +1360,7 @@ public class TAuthorityModuleServiceImpl implements TAuthorityModuleService {
 		if(logname.equalsIgnoreCase("dev")){
 			return getData_GubuSoft_Tree();
 		}
-		
-		List dataList = new ArrayList();//Root's children
-		
-		List<TAuthorityModule> mList = dataDAO.findByUserId(userId);
-		
-		List<TAuthorityModule> level0ModuleList = new ArrayList<TAuthorityModule>();
-		List<TAuthorityModule> level1ModuleList = new ArrayList<TAuthorityModule>();
-		List<TAuthorityModule> level2ModuleList = new ArrayList<TAuthorityModule>();
-		List<TAuthorityModule> level3ModuleList = new ArrayList<TAuthorityModule>();
-		List<TAuthorityModule> level4ModuleList = new ArrayList<TAuthorityModule>();
-		List<TAuthorityModule> level5ModuleList = new ArrayList<TAuthorityModule>();
-		List<TAuthorityModule> level6ModuleList = new ArrayList<TAuthorityModule>();
-		List<TAuthorityModule> level7ModuleList = new ArrayList<TAuthorityModule>();
-		List<TAuthorityModule> level8ModuleList = new ArrayList<TAuthorityModule>();
-		List<TAuthorityModule> level9ModuleList = new ArrayList<TAuthorityModule>();
-		List<TAuthorityModule> level10ModuleList = new ArrayList<TAuthorityModule>();
-		
-//		System.out.println("total module count:"+mList.size());
-		
-		int level;
-//		log.debug("mList.size():"+mList.size());
-		//assembling by level ,aim to raise algorithm efficiency;
-		for(int i=0,j = mList.size(); i < j; i++){
-			TAuthorityModule module = (TAuthorityModule)mList.get(i);
-			level = module.getNMlevel().intValue();
-//			log.debug("..level--->"+level);
-			switch(level){
-				case 0 : level0ModuleList.add(module); break;
-				case 1 : level1ModuleList.add(module); break;
-				case 2 : level2ModuleList.add(module); break;
-				case 3 : level3ModuleList.add(module); break;
-				case 4 : level4ModuleList.add(module); break;
-				case 5 : level5ModuleList.add(module); break;
-				case 6 : level6ModuleList.add(module); break;
-				case 7 : level7ModuleList.add(module); break;
-				case 8 : level8ModuleList.add(module); break;
-				case 9 : level9ModuleList.add(module); break;
-				case 10 : level10ModuleList.add(module); break;
-				default : 
-					System.out.println("level:"+level);
-					System.out.println("module level invalid");
-			}
-		}
-	
-		if( level0ModuleList.size() == 0 ){
-			return "[]";
-		}
-//		MenuDataUtil mdUtil = new MenuDataUtil();
-		mdUtil.assembleData_GubuSoft_Tree(dataList, (TAuthorityModule)level0ModuleList.get(0), 1,	
-				level1ModuleList,	level2ModuleList,
-				level3ModuleList,	level4ModuleList,
-				level5ModuleList,	level6ModuleList,
-				level7ModuleList,	level8ModuleList,
-				level9ModuleList,	level10ModuleList);
-		
-		TAuthorityModule rootModule = (TAuthorityModule)level0ModuleList.get(0);
-		
-		TAuthorityModule_GubuSoft_Tree gbsTvM = new TAuthorityModule_GubuSoft_Tree();
-		gbsTvM.setId(rootModule.getNMid());
-		gbsTvM.setText(rootModule.getCMname());
-		gbsTvM.setIconcls(rootModule.getCMiconcls());
-		gbsTvM.setChildren(dataList);
-	
-		JSONArray jsonArray = JSONArray.fromObject(gbsTvM);
-//		log.debug("jsonArray:"+jsonArray.toString());
-		/* struts2's json plugin **/
-//		try {
-//			log.debug("JSONUtil.serialize(gbsTvM):" + JSONUtil.serialize(gbsTvM));
-//		} catch (JSONException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		return jsonArray.toString();
+		return getData_GubuSoft_Tree( userId);
 	}
 	@SuppressWarnings("unchecked")
 	public String getData_YUI2_Menu(){
