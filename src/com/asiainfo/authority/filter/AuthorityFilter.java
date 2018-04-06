@@ -58,7 +58,7 @@ public class AuthorityFilter implements Filter {
         
         //compare to smart spring security's none filter(nofilter)
         String[] noCheckURI = {"login","index",
-        		"css","images","scripts", "print","ckfinder","dwr" };
+        		"css","images","scripts", "print","ckfinder","dwr","test","demo" };
         
 //        String[] logins = {"login.html","login.jsp",
 //        		"index.html","index.jsp"};
